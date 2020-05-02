@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Mean Auth App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarsExample02">
+     
+        <ul class="navbar-nav mr-auto navbar-left">
+            
+          </ul>
+          <ul class="navbar-nav  navbar-right">
+            <li class="nav-item "  [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                <a class="nav-link"  [routerLink]="['/']">Home </a>
+              </li>
+             
+            <li class="nav-item " *ngif="!auth.loggedIn()" [routerLinkActive]="['active']"  [routerLinkActiveOptions]="{exact:true}">
+              <a class="nav-link"  [routerLink]="['/login']">login </a>
+             
+            </li>
+            <li class="nav-item " *ngif="!auth.loggedIn()" [routerLinkActive]="['active']"  [routerLinkActiveOptions]="{exact:true}">
+                <a class="nav-link" [routerLink]="['/register']">register </a>
+               
+              </li>
+              <li class="nav-item " *ngif="auth.loggedIn()"  [routerLinkActive]="['active']"  [routerLinkActiveOptions]="{exact:true}">
+                <a class="nav-link" [routerLink]="['/profile']">Profile </a>
+               
+              </li>
+              <li class="nav-item " *ngif="auth.loggedIn()" [routerLinkActive]="['active']"  [routerLinkActiveOptions]="{exact:true}">
+                <a class="nav-link" [routerLink]="['/dashboard']">dashboard </a>
+               
+              </li>
+              <li class="nav-item " *ngif="auth.loggedIn()" >
+                <a class="nav-link" href="#" (click)="onLogout()">Logout </a>
+               
+              </li>
+           
+          </ul>
+    </div>
+  </nav>
